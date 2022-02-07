@@ -11,7 +11,7 @@ const App = () => {
       <Switch>
         {/* Protected route for dashboard side */}
 
-        <Route exact path="/ContractsPage">
+        <Route exact path="/">
           <DashboardprotectedRoute DashboardProtect={ContractsPage} />
         </Route>
 

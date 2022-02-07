@@ -14,23 +14,15 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";
 import { GiRamProfile } from "react-icons/gi";
 import { MdQuestionAnswer } from "react-icons/md";
-import { UserContext } from "../../UserContext";
 import { BsStack } from "react-icons/bs";
 
 const NavMobileview = () => {
   const [mobilesidebar, setMobilesidebar] = useState(false);
 
-  const [state, setState] = useContext(UserContext);
 
   const history = useHistory();
 
-  const logOut = () => {
-    window.localStorage.removeItem("tokenLogin");
-    window.localStorage.removeItem("token");
 
-    setState(null);
-    history.push("/signin");
-  };
 
   return (
     <div className="responsivenav">
@@ -42,21 +34,7 @@ const NavMobileview = () => {
           />
         </p>
 
-        <p className="profile-name">{state && state.user && state.user.name}</p>
-
-        <div className="profile-image">
-          {state && state.user && state.user.photo ? (
-            <img src={state && state.user && state.user.photo} />
-          ) : (
-            <div className="profile-nave-avatar">
-              <h4>
-                {state &&
-                  state.user &&
-                  state.user.name?.substring(0, 2).toUpperCase()}
-              </h4>
-            </div>
-          )}
-        </div>
+     
       </div>
 
       {mobilesidebar ? (
@@ -109,53 +87,10 @@ const NavMobileview = () => {
             </div>
           </NavLink>
 
-          {/* <NavLink
-            to="/AddExperience"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <GiSkills size={15} /> Experience
-              </li>
-            </div>
-          </NavLink> */}
-          {/* 
-          <NavLink
-            to="/favourite"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <BsHeartFill size={15} /> Favourite
-              </li>
-            </div>
-          </NavLink> */}
+        
+    
 
-          {/* <NavLink
-            to="/my-comments"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <MdQuestionAnswer size={15} /> Comments
-              </li>
-            </div>
-          </NavLink> */}
 
-          {/* <NavLink
-            to="/message"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <AiFillMessage size={15} /> Messages
-              </li>
-            </div>
-          </NavLink> */}
 
           <Link to="/" style={{ textDecoration: "none" }}>
             <div className="sidebar-mobile-nav">
@@ -165,20 +100,8 @@ const NavMobileview = () => {
             </div>
           </Link>
 
-          {/* <NavLink
-            target={"_blank"}
-            to={"/userprofile/" + (userdetails && userdetails._id)}
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <GiRamProfile size={15} /> Public Profile
-              </li>
-            </div>
-          </NavLink> */}
 
-          <div className="sidebar-mobile-nav" onClick={logOut}>
+          <div className="sidebar-mobile-nav">
             <li onClick={() => setMobilesidebar(!mobilesidebar)}>
               <RiLogoutCircleRLine size={15} /> Log Out
             </li>

@@ -20,10 +20,6 @@ const DashboardprotectedRoute = (props) => {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("tokenLogin")) {
-      history.push("/signin");
-    } else {
-    }
 
     ReactTooltip.rebuild();
   }, []);

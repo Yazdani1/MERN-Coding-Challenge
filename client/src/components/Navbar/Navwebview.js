@@ -14,22 +14,11 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";
 import { GiRamProfile } from "react-icons/gi";
 import { MdQuestionAnswer } from "react-icons/md";
-import { UserContext } from "../../UserContext";
 import ReactTooltip from "react-tooltip";
 import { BsStack } from "react-icons/bs";
 
-
 const Navwebview = (props) => {
-  const [state, setState] = useContext(UserContext);
-
   const history = useHistory();
-
-  const logOut = () => {
-    window.localStorage.removeItem("tokenLogin");
-    window.localStorage.removeItem("token");
-    setState(null);
-    history.push("/signin");
-  };
 
   useEffect(() => {
     ReactTooltip.rebuild();
@@ -104,55 +93,6 @@ const Navwebview = (props) => {
             </div>
           </NavLink>
 
-
-          {/* <NavLink
-            to="/AddExperience"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-item-back">
-              <div className="sidebar-items">
-                <p>
-                  <GiSkills size={20} />
-                </p>
-
-                 <p>Experience</p>
-              </div>
-            </div>
-          </NavLink>  */}
-
-          {/* <NavLink
-            to="/favourite"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-item-back">
-              <div className="sidebar-items">
-                <p>
-                  <BsHeartFill size={20} />
-                </p>
-
-               <p>Favourite</p> 
-              </div>
-            </div>
-          </NavLink> */}
-
-          {/* <NavLink
-            to="/my-comments"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-item-back">
-              <div className="sidebar-items">
-                <p>
-                  <MdQuestionAnswer size={20} />
-                </p>
-
-              <p>Comments</p> 
-              </div>
-            </div>
-          </NavLink> */}
-
           <NavLink
             to="/message"
             style={{ textDecoration: "none" }}
@@ -163,31 +103,12 @@ const Navwebview = (props) => {
                 <p>
                   <AiFillMessage size={20} />
                 </p>
-
-            
               </div>
             </div>
           </NavLink>
 
-          {/* <NavLink
-            target={"_blank"}
-            to={"/userprofile/" + (userdetails && userdetails._id)}
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-item-back">
-              <div className="sidebar-items">
-                <p>
-                  <GiRamProfile size={20} />
-                </span>
-
-                <p>Public Profile</p>
-              </div>
-            </div>
-          </NavLink> */}
-
           <div className="sidebar-item-back" data-tip="Log Out">
-            <div className="sidebar-items" onClick={logOut}>
+            <div className="sidebar-items">
               <p>
                 <RiLogoutCircleRLine size={20} />
               </p>
@@ -253,79 +174,8 @@ const Navwebview = (props) => {
               </p>
             </div>
           </NavLink>
-          {/* 
-          <NavLink
-            to="/AddExperience"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) =>
-              isActive ? "largenavactive" : "inactive"
-            }
-          >
-            <div className="sidebar-large-navdesign">
-              <p>
-                <GiSkills size={15} /> Experience
-              </p>
-            </div>
-          </NavLink> */}
 
-          {/* <NavLink
-            to="/favourite"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) =>
-              isActive ? "largenavactive" : "inactive"
-            }
-          >
-            <div className="sidebar-large-navdesign">
-              <p>
-                <BsHeartFill size={15} /> Favourite
-              </p>
-            </div>
-          </NavLink> */}
-
-          {/* <NavLink
-            to="/my-comments"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) =>
-              isActive ? "largenavactive" : "inactive"
-            }
-          >
-            <div className="sidebar-large-navdesign">
-              <p>
-                <MdQuestionAnswer size={15} /> My Comments
-              </p>
-            </div>
-          </NavLink> */}
-
-          {/* <NavLink
-            to="/message"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) =>
-              isActive ? "largenavactive" : "inactive"
-            }
-          >
-            <div className="sidebar-large-navdesign">
-              <p>
-                <AiFillMessage size={15} /> Messages
-              </p>
-            </div>
-          </NavLink> */}
-
-          {/* <NavLink
-            target={"_blank"}
-            to={"/userprofile/" + (userdetails && userdetails._id)}
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) =>
-              isActive ? "largenavactive" : "inactive"
-            }
-          >
-            <div className="sidebar-large-navdesign">
-              <p>
-                <GiRamProfile size={15} /> Public Profile
-              </p>
-            </div>
-          </NavLink> */}
-
-          <div className="sidebar-large-navdesign" onClick={logOut}>
+          <div className="sidebar-large-navdesign">
             <p>
               <AiOutlineLogout size={15} /> Log Out
             </p>
