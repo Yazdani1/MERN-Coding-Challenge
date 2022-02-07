@@ -14,7 +14,7 @@ const Navheader = (props) => {
         </li>
         <ul>
           <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
-            <li>Home</li>
+            <li>Synctive Coding Challenge</li>
           </Link>
         </ul>
       </div>
