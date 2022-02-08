@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 
-const jobposts = mongoose.Schema({
+const machinecontractschema = mongoose.Schema({
   machinename: {
     type: String,
   },
@@ -18,4 +18,4 @@ const jobposts = mongoose.Schema({
     default: Date.now,
   },
 });
-module.exports = mongoose.model("Jobposts", jobposts);
+module.exports = mongoose.model("machinecontract", machinecontractschema);
