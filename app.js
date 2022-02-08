@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //router
 
-// app.use("/api", require("./router/userauth"));
+app.use("/api", require("./router/contract"));
 // app.use("/api", require("./router/createJobs"));
 // app.use("/api", require("./router/appliedJobs"));
 // app.use("/api", require("./router/userInfo"));
