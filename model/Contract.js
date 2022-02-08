@@ -7,10 +7,10 @@ const machinecontractschema = mongoose.Schema({
   },
 
   onetimefee: {
-    type: Number,
+    type: mongoose.Types.Decimal128,
   },
   ugaesfee: {
-    type: Number,
+    type: mongoose.Types.Decimal128,
   },
 
   date: {
