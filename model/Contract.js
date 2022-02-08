@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { ObjectId } = mongoose.Schema.Types;
 
 const machinecontractschema = mongoose.Schema({
   machinename: {
@@ -9,7 +8,7 @@ const machinecontractschema = mongoose.Schema({
   onetimefee: {
     type: mongoose.Types.Decimal128,
   },
-  ugaesfee: {
+  usagefee: {
     type: mongoose.Types.Decimal128,
   },
 
