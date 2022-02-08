@@ -1,9 +1,10 @@
 const router = require("express").Router();
-require("dotenv").config();
 
-const { createContract } = require("../controller/contract");
+const { createContract,getContract } = require("../controller/contract");
 
-//create contract api end point
-router.post("/create-contract", createContract);
+//to create contract
+router.post("/createcontract", createContract);
+//to get created contract
+router.get("/get-contract", getContract);
 
 module.exports = router;

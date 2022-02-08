@@ -12,19 +12,13 @@ require("dotenv").config();
 require("./model/db");
 
 app.use(cors());
-
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //router
 
 app.use("/api", require("./router/contract"));
-// app.use("/api", require("./router/createJobs"));
-// app.use("/api", require("./router/appliedJobs"));
-// app.use("/api", require("./router/userInfo"));
-
-
-
 
 //to deploy heroku
 // Serve static assets if in production
@@ -37,9 +31,6 @@ app.use("/api", require("./router/contract"));
 //     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 //   });
 // }
-
-
-
 
 app.listen(PORT, (req, res) => {
   console.log("Server connected");
