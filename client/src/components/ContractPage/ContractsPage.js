@@ -44,18 +44,22 @@ const ContractsPage = () => {
   return (
     <React.Fragment>
       <Createcontract />
-      {contract.map((item, index) => (
-        <>
-          <Showcontract
-            machinename={item.machinename}
-            onetimefee={item.onetimefee}
-            usagefee={item.usagefee}
-            contractId={item._id}
-            deletecontractList={deletecontractList}
-          />
-        </>
-      ))}
+      <div className="create-contracts-container">
+        <h6>All Contracts:{contract.length}</h6>
 
+        {contract.map((item, index) => (
+          <>
+            <Showcontract
+              key={item._id}
+              machinename={item.machinename}
+              onetimefee={item.onetimefee}
+              usagefee={item.usagefee}
+              contractId={item._id}
+              deletecontractList={deletecontractList}
+            />
+          </>
+        ))}
+      </div>
       <ToastContainer autoClose={8000} />
     </React.Fragment>
   );
