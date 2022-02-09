@@ -1,6 +1,6 @@
 import React from "react";
 
-const Showcontract = ({ machinename, onetimefee, usagefee }) => {
+const Showcontract = ({ machinename, onetimefee, usagefee,deletecontractList,contractId }) => {
   return (
     <div className="container-fluid  create-event-container">
       <div className="row">
@@ -25,9 +25,9 @@ const Showcontract = ({ machinename, onetimefee, usagefee }) => {
                   <div className="button-design">
                     <button
                       className="btn btn-danger"
-                      // onClick={() => {
-                      //   deleteMyjobposts(item._id);
-                      // }}
+                      onClick={() => {
+                        deletecontractList(contractId);
+                      }}
                     >
                       Delete
                     </button>

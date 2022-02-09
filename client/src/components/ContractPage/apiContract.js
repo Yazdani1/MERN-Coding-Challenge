@@ -15,9 +15,29 @@ export const createContract = (createcontracts) => {
     });
 };
 
+//to get all the created contracts
+
 export const getmachineContract = () => {
   return fetch("/api/get-contract", {
     method: "GET",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+//to delete contracts
+
+export const deleteContracts = (id) => {
+  return fetch("/api/delete-contract/" + id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
   })
     .then((res) => {
       return res.json();
