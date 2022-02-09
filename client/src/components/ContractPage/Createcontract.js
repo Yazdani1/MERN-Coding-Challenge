@@ -1,7 +1,60 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./contractsPage.css";
-
+import { createContract } from "./apiContract";
+import { ToastContainer, toast } from "react-toastify";
+import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 const Createcontract = () => {
+  const [machinename, setMachinename] = useState("");
+  const [onetimefee, setOnetimefee] = useState("");
+  const [usagefee, setUsagefee] = useState("");
+  const [error, setError] = useState(false);
+
+  const machinenameChange = (e) => {
+    setError("");
+    setMachinename(e.target.value);
+  };
+
+  const onetimefeeChange = (e) => {
+    setError("");
+    setOnetimefee(e.target.value);
+  };
+
+  const usagefeeChange = (e) => {
+    setError("");
+    setUsagefee(e.target.value);
+  };
+
+  const createmachineDetails = (e) => {
+    e.preventDefault();
+    createContract({ machinename, onetimefee, usagefee })
+      .then((result) => {
+        if (result.error) {
+          setError(result.error);
+        } else {
+          console.log(result);
+          toast.success("Your contract has created", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+
+          setMachinename("");
+          onetimefeeChange("");
+          usagefeeChange("");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
   return (
     <div className="container-fluid create-event-container">
       <div className="row">
@@ -11,6 +64,8 @@ const Createcontract = () => {
               <h5 className="text-center">Create Contracts</h5>
             </div>
 
+            {showError()}
+
             <form>
               <div className="event-form">
                 <label for="exampleInputEmail1" className="form-label">
@@ -18,8 +73,8 @@ const Createcontract = () => {
                 </label>
                 <input
                   type="text"
-                  // value={name}
-                  // onChange={(e) => setName(e.target.value)}
+                  value={machinename}
+                  onChange={machinenameChange}
                   className="form-control"
                   maxLength="100"
                 />
@@ -30,9 +85,9 @@ const Createcontract = () => {
                   One-Time Fee
                 </label>
                 <input
-                  type="number"
-                  // value={name}
-                  // onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  value={onetimefee}
+                  onChange={onetimefeeChange}
                   className="form-control"
                   maxLength="100"
                 />
@@ -45,8 +100,8 @@ const Createcontract = () => {
                 <input
                   type="number"
                   step="0.1"
-                  // value={name}
-                  // onChange={(e) => setName(e.target.value)}
+                  value={usagefee}
+                  onChange={usagefeeChange}
                   className="form-control"
                   maxLength="100"
                 />
@@ -57,6 +112,7 @@ const Createcontract = () => {
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
+                  onClick={(e) => createmachineDetails(e)}
                 >
                   Create Contracts
                 </button>
@@ -65,6 +121,7 @@ const Createcontract = () => {
           </div>
         </div>
       </div>
+      <ToastContainer autoClose={8000} />
     </div>
   );
 };

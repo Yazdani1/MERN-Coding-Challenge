@@ -1,5 +1,5 @@
 export const createContract = (createcontracts) => {
-  return fetch("/", {
+  return fetch("/api/createcontract", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
