@@ -33,6 +33,7 @@ exports.createContract = (req, res) => {
 
 exports.getContract = (req, res) => {
   Contract.find({})
+    .sort({ date: "DESC" })
     .then((contractpost) => {
       res.json(contractpost);
     })
