@@ -14,3 +14,15 @@ export const createContract = (createcontracts) => {
       console.log(err);
     });
 };
+
+export const getmachineContract = () => {
+  return fetch("/api/get-contract", {
+    method: "GET",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

@@ -26,19 +26,20 @@ const Createcontract = () => {
 
   const createmachineDetails = (e) => {
     e.preventDefault();
+    setError("");
     createContract({ machinename, onetimefee, usagefee })
       .then((result) => {
         if (result.error) {
           setError(result.error);
         } else {
-          console.log(result);
+          setError("");
           toast.success("Your contract has created", {
             position: toast.POSITION.TOP_RIGHT,
           });
 
           setMachinename("");
-          onetimefeeChange("");
-          usagefeeChange("");
+          setOnetimefee("");
+          setUsagefee("");
         }
       })
       .catch((err) => {
@@ -80,31 +81,38 @@ const Createcontract = () => {
                 />
               </div>
 
-              <div className="event-form">
-                <label for="exampleInputEmail1" className="form-label">
-                  One-Time Fee
-                </label>
-                <input
-                  type="text"
-                  value={onetimefee}
-                  onChange={onetimefeeChange}
-                  className="form-control"
-                  maxLength="100"
-                />
-              </div>
+              <div className="input-filed-row">
+                <div className="row">
+                  <div className="col-lg-6 col-xl-6">
+                    <div className="event-form">
+                      <label for="exampleInputEmail1" className="form-label">
+                        One-Time Fee
+                      </label>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={onetimefee}
+                        onChange={onetimefeeChange}
+                        className="form-control"
+                      />
+                    </div>
+                  </div>
 
-              <div className="event-form">
-                <label for="exampleInputEmail1" className="form-label">
-                  Usage Fee
-                </label>
-                <input
-                  type="number"
-                  step="0.1"
-                  value={usagefee}
-                  onChange={usagefeeChange}
-                  className="form-control"
-                  maxLength="100"
-                />
+                  <div className="col-lg-6 col-xl-6">
+                    <div className="event-form">
+                      <label for="exampleInputEmail1" className="form-label">
+                        Usage Fee
+                      </label>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={usagefee}
+                        onChange={usagefeeChange}
+                        className="form-control"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group justify-content-center align-items-center">
@@ -112,7 +120,7 @@ const Createcontract = () => {
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
-                  onClick={(e) => createmachineDetails(e)}
+                  onClick={createmachineDetails}
                 >
                   Create Contracts
                 </button>
