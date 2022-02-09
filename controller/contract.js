@@ -55,3 +55,16 @@ exports.contractDetails = (req, res) => {
       console.log(err);
     });
 };
+
+//delete contracts
+
+exports.deleteContracts = (req, res) => {
+  var deletequery = { _id: req.params.id };
+  Contract.findByIdAndDelete(deletequery)
+    .then((contractsdelete) => {
+      res.json(contractsdelete);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
