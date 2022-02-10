@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PagenotFound from "./components/PagenotFound";
 import DashboardprotectedRoute from "./components/DashboardprotectedRoute";
 import ContractsPage from "./components/ContractPage/ContractsPage";
-import UsagePage from "./components/UsagePage";
+import UsagePage from "./components/Usagespage/UsagePage";
 
 const App = () => {
   return (
