@@ -56,6 +56,13 @@ const UsagePage = () => {
 
   const contractprice = (e) => {
     e.preventDefault();
+
+    if (!usages) {
+      toast.error("Please add usages..", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+
     var contractresult =
       parseFloat(singlemachine.onetimefee) +
       parseFloat(singlemachine.usagefee) * parseInt(usages);
@@ -76,7 +83,9 @@ const UsagePage = () => {
 
             {machinelist.map((item) => (
               <>
-                <option value={item._id}>{item.machinename} </option>
+                <option key={item._id} value={item._id}>
+                  {item.machinename}{" "}
+                </option>
               </>
             ))}
           </select>
@@ -86,7 +95,7 @@ const UsagePage = () => {
       {singlemachine._id ? (
         <div className="container card machine-details">
           <div className="machine-details-item">
-            <p>{singlemachine.machinename}</p>
+            <h5>{singlemachine.machinename}</h5>
             <p>
               One time fee: {parseFloat(singlemachine.onetimefee).toFixed(2)} +
               Usage fee: {parseFloat(singlemachine.usagefee).toFixed(2)}
@@ -102,16 +111,19 @@ const UsagePage = () => {
                   onChange={(e) => setUsages(e.target.value)}
                   className="form-control"
                 />
+                {/* {error ? "Please add usages.." : null} */}
               </div>
               <h6>
-                Contract Price: {parseFloat(contractpriceresult).toFixed(2)}
+                Contract Price:{" "}
+                {contractpriceresult
+                  ? parseFloat(contractpriceresult).toFixed(2)
+                  : "0.00"}
               </h6>
               <div class="form-group justify-content-center align-items-center">
                 <button
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
-                  disabled={!usages}
                   onClick={contractprice}
                 >
                   Contract Price

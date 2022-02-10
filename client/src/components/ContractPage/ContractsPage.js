@@ -3,9 +3,13 @@ import Createcontract from "./Createcontract";
 import Showcontract from "./Showcontract";
 import { getmachineContract, deleteContracts } from "./apiContract";
 import { ToastContainer, toast } from "react-toastify";
+import { SyncOutlined } from "@ant-design/icons";
 
 const ContractsPage = () => {
   const [contract, setContract] = useState([]);
+
+  //loading
+  const [loading, setLoading] = useState(true);
 
   //to get all the contracts
   const loadmachineContract = () => {
@@ -13,6 +17,7 @@ const ContractsPage = () => {
       .then((result) => {
         if (result) {
           setContract(result);
+          setLoading(false);
         }
       })
       .catch((err) => {
@@ -40,6 +45,16 @@ const ContractsPage = () => {
   useEffect(() => {
     loadmachineContract();
   }, [contract]);
+
+  if (loading) {
+    return (
+      <div class="text-center my-25">
+        <h1>
+          <SyncOutlined spin />
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>
