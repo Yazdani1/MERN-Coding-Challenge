@@ -8,3 +8,12 @@
 .machine-details{
     margin-top: 20px;
 }
+
+.noposts-design{
+    height: 500px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    position: relative;
+  }

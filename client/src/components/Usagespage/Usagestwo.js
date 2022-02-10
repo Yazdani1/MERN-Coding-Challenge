@@ -41,6 +41,8 @@ const Usagestwo = () => {
       .then((result) => {
         if (result) {
           setSinglemachine(result);
+          setContractpriceresult("");
+          setUsages("");
         }
       })
       .catch((err) => {

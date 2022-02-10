@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { getmachineContract } from "../ContractPage/apiContract";
 import { getsingleMachinedetails } from "./apiUsagepage";
-
 import "./usagepage.css";
+import { FcBiomass } from "react-icons/fc";
 
 const UsagePage = () => {
   //show machine name in select option
@@ -41,6 +41,8 @@ const UsagePage = () => {
       .then((result) => {
         if (result) {
           setSinglemachine(result);
+          setContractpriceresult("");
+          setUsages("");
         }
       })
       .catch((err) => {
@@ -133,7 +135,10 @@ const UsagePage = () => {
           </div>
         </div>
       ) : (
-        "Select machine name"
+        <h5 className="container card noposts-design">
+          <FcBiomass size={200} />
+          To calculate contract price, please select a machine name!
+        </h5>
       )}
 
       <ToastContainer autoClose={8000} />
