@@ -69,9 +69,7 @@ const Createcontract = () => {
 
             <form>
               <div className="event-form">
-                <label for="exampleInputEmail1" className="form-label">
-                  Machine Name
-                </label>
+                <label className="form-label">Machine Name</label>
                 <input
                   type="text"
                   value={machinename}
@@ -85,9 +83,7 @@ const Createcontract = () => {
                 <div className="row">
                   <div className="col-lg-6 col-xl-6">
                     <div className="event-form">
-                      <label for="exampleInputEmail1" className="form-label">
-                        One-Time Fee
-                      </label>
+                      <label className="form-label">One-Time Fee</label>
                       <input
                         type="number"
                         step="0.1"
@@ -100,9 +96,7 @@ const Createcontract = () => {
 
                   <div className="col-lg-6 col-xl-6">
                     <div className="event-form">
-                      <label for="exampleInputEmail1" className="form-label">
-                        Usage Fee
-                      </label>
+                      <label className="form-label">Usage Fee</label>
                       <input
                         type="number"
                         step="0.1"
@@ -115,7 +109,7 @@ const Createcontract = () => {
                 </div>
               </div>
 
-              <div class="form-group justify-content-center align-items-center">
+              <div className="form-group justify-content-center align-items-center">
                 <button
                   type="submit"
                   name="btnSubmit"

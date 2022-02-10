@@ -63,16 +63,14 @@ const ContractsPage = () => {
         <h6>All Contracts:{contract.length}</h6>
 
         {contract.map((item, index) => (
-          <>
-            <Showcontract
-              key={item._id}
-              machinename={item.machinename}
-              onetimefee={item.onetimefee}
-              usagefee={item.usagefee}
-              contractId={item._id}
-              deletecontractList={deletecontractList}
-            />
-          </>
+          <Showcontract
+            key={item._id}
+            machinename={item.machinename}
+            onetimefee={item.onetimefee}
+            usagefee={item.usagefee}
+            contractId={item._id}
+            deletecontractList={deletecontractList}
+          />
         ))}
       </div>
       <ToastContainer autoClose={8000} />

@@ -73,6 +73,7 @@ const UsagePage = () => {
     // setUsages("");
   };
 
+
   return (
     <React.Fragment>
       <div className="container card contract-price-cal">
