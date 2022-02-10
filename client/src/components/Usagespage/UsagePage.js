@@ -111,6 +111,7 @@ const UsagePage = () => {
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
+                  disabled={!usages}
                   onClick={contractprice}
                 >
                   Contract Price
