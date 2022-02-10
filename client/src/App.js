@@ -4,6 +4,7 @@ import PagenotFound from "./components/PagenotFound";
 import DashboardprotectedRoute from "./components/DashboardprotectedRoute";
 import ContractsPage from "./components/ContractPage/ContractsPage";
 import UsagePage from "./components/Usagespage/UsagePage";
+import Usagestwo from "./components/Usagespage/Usagestwo";
 
 const App = () => {
   return (
@@ -13,12 +14,15 @@ const App = () => {
         <Route exact path="/">
           <DashboardprotectedRoute DashboardProtect={ContractsPage} />
         </Route>
-        <Route exact path="/contracts">
+        <Route exact path="/contracts/">
           <DashboardprotectedRoute DashboardProtect={ContractsPage} />
         </Route>
 
-        <Route exact path="/usage">
+        <Route exact path="/usage/">
           <DashboardprotectedRoute DashboardProtect={UsagePage} />
+        </Route>
+        <Route exact path="/usagetwo/">
+          <DashboardprotectedRoute DashboardProtect={Usagestwo} />
         </Route>
 
         {/*  Protected route end for dashboard side */}

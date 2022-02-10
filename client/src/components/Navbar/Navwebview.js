@@ -2,25 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import "./navweb.css";
 import "./navheader.css";
 import { NavLink } from "react-router-dom";
-import { AiOutlineLogout } from "react-icons/ai";
 import NavMobileview from "./NavMobileview";
 import { AiFillDashboard } from "react-icons/ai";
-import { RiEditFill } from "react-icons/ri";
-import { FaUserNurse } from "react-icons/fa";
-import { GiSkills } from "react-icons/gi";
-import { Link, useHistory } from "react-router-dom";
-import { BsHeartFill } from "react-icons/bs";
-import { RiLogoutCircleRLine } from "react-icons/ri";
-import { AiFillMessage } from "react-icons/ai";
-import { GiRamProfile } from "react-icons/gi";
-import { MdQuestionAnswer } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
 import { DiGoogleAnalytics } from "react-icons/di";
-
-
-
+import {SiGoogleanalytics} from "react-icons/si"
 const Navwebview = (props) => {
-  const history = useHistory();
 
   useEffect(() => {
     ReactTooltip.rebuild();
@@ -31,7 +18,7 @@ const Navwebview = (props) => {
       {props.sidebar ? (
         <div className="sidebar-small-design">
           <NavLink
-            to="/contracts"
+            to="/contracts/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
@@ -45,7 +32,7 @@ const Navwebview = (props) => {
           </NavLink>
 
           <NavLink
-            to="/usage"
+            to="/usage/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
@@ -54,16 +41,28 @@ const Navwebview = (props) => {
                 <p>
                   <DiGoogleAnalytics size={20} />
                 </p>
-
               </div>
             </div>
           </NavLink>
 
+          <NavLink
+            to="/usagetwo/"
+            style={{ textDecoration: "none" }}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            <div className="sidebar-item-back" data-tip="Usage Two">
+              <div className="sidebar-items">
+                <p>
+                  <SiGoogleanalytics size={20} />
+                </p>
+              </div>
+            </div>
+          </NavLink>
         </div>
       ) : (
         <div className="sidebar-large">
           <NavLink
-            to="/contracts"
+            to="/contracts/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) =>
               isActive ? "largenavactive" : "inactive"
@@ -77,7 +76,7 @@ const Navwebview = (props) => {
           </NavLink>
 
           <NavLink
-            to="/usage"
+            to="/usage/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) =>
               isActive ? "largenavactive" : "inactive"
@@ -86,7 +85,22 @@ const Navwebview = (props) => {
             <div className="sidebar-large-navdesign">
               <p>
                 <DiGoogleAnalytics size={15} />
-                Usage 
+                Usage
+              </p>
+            </div>
+          </NavLink>
+
+          <NavLink
+            to="/usagetwo/"
+            style={{ textDecoration: "none" }}
+            className={({ isActive }) =>
+              isActive ? "largenavactive" : "inactive"
+            }
+          >
+            <div className="sidebar-large-navdesign">
+              <p>
+                <SiGoogleanalytics size={15} />
+                Usage Two
               </p>
             </div>
           </NavLink>
