@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./contractsPage.css";
-import { geteditInfo, updateContract } from "./apiContract";
+import { geteditInfo} from "./apiContract";
 import { ToastContainer, toast } from "react-toastify";
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 import { Link, useHistory, useParams } from "react-router-dom";
@@ -10,10 +10,9 @@ const Updatecontract = () => {
   const [onetimefee, setOnetimefee] = useState("");
   const [usagefee, setUsagefee] = useState("");
   const [error, setError] = useState(false);
+
   const { contractID } = useParams();
-
   const history = useHistory();
-
 
   const machinenameChange = (e) => {
     setError("");
@@ -50,15 +49,15 @@ const Updatecontract = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result) {
-          toast.success("Your contract has Updated", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+        if (result.error) {
+          setError(result.error);
+        } else {
+      
           history.push("/contracts/");
           console.log("success");
-        //   setMachinename("");
-        //   setOnetimefee("");
-        //   setUsagefee("");
+          //   setMachinename("");
+          //   setOnetimefee("");
+          //   setUsagefee("");
         }
       })
       .catch((err) => {

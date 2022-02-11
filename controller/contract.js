@@ -88,11 +88,23 @@ exports.geteditData = (req, res) => {
 exports.updateContract = (req, res) => {
   var updatequery = { _id: req.params.id };
 
+  const { machinename, onetimefee, usagefee } = req.body;
+
+  if (!machinename) {
+    return res.status(400).json({ error: "Machine name is required" });
+  }
+  if (!onetimefee) {
+    return res.status(400).json({ error: "Onetime fee is required" });
+  }
+  if (!usagefee) {
+    return res.status(400).json({ error: "Usage fee is required" });
+  }
+
   Contract.updateOne(updatequery, {
     $set: {
-      machinename: req.body.machinename,
-      onetimefee: req.body.onetimefee,
-      usagefee: req.body.usagefee,
+      machinename: machinename,
+      onetimefee: onetimefee,
+      usagefee: usagefee,
     },
   })
     .then((result) => {
