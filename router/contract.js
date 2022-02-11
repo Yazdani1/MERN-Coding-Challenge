@@ -6,6 +6,7 @@ const {
   contractDetails,
   deleteContracts,
   geteditData,
+  updateContract
 } = require("../controller/contract");
 
 //to create contract
@@ -20,8 +21,12 @@ router.get("/contract-details/:id", contractDetails);
 
 router.delete("/delete-contract/:id", deleteContracts);
 
-//to edit data.. edit api end point
+//to get edit data.. edit api end point
 
 router.get("/edit-info/:id", geteditData);
+
+//to update contract info
+
+router.put("/update-contract/:id", updateContract);
 
 module.exports = router;

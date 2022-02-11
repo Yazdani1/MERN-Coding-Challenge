@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./contractsPage.css";
-import { geteditInfo } from "./apiContract";
+import { geteditInfo, updateContract } from "./apiContract";
 import { ToastContainer, toast } from "react-toastify";
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 import { Link, useHistory, useParams } from "react-router-dom";
@@ -11,6 +11,9 @@ const Updatecontract = () => {
   const [usagefee, setUsagefee] = useState("");
   const [error, setError] = useState(false);
   const { contractID } = useParams();
+
+  const history = useHistory();
+
 
   const machinenameChange = (e) => {
     setError("");
@@ -25,6 +28,42 @@ const Updatecontract = () => {
   const usagefeeChange = (e) => {
     setError("");
     setUsagefee(e.target.value);
+  };
+
+  //to update contract
+
+  const updateContract = (e) => {
+    e.preventDefault();
+    setError("");
+
+    fetch("/api/update-contract/" + contractID, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        machinename,
+        onetimefee,
+        usagefee,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          toast.success("Your contract has Updated", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          history.push("/contracts/");
+          console.log("success");
+        //   setMachinename("");
+        //   setOnetimefee("");
+        //   setUsagefee("");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const getcontractinfoinUpdateform = () => {
@@ -112,7 +151,7 @@ const Updatecontract = () => {
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
-                  //   onClick={createmachineDetails}
+                  onClick={updateContract}
                 >
                   Create Contracts
                 </button>

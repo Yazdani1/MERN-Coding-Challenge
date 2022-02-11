@@ -60,3 +60,4 @@ export const geteditInfo = (id) => {
       console.log(err);
     });
 };
+

@@ -82,3 +82,23 @@ exports.geteditData = (req, res) => {
       console.log(err);
     });
 };
+
+//update contract information
+
+exports.updateContract = (req, res) => {
+  var updatequery = { _id: req.params.id };
+
+  Contract.updateOne(updatequery, {
+    $set: {
+      machinename: req.body.machinename,
+      onetimefee: req.body.onetimefee,
+      usagefee: req.body.usagefee,
+    },
+  })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
