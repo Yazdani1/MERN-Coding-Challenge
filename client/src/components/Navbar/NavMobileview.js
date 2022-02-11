@@ -15,14 +15,13 @@ import { AiFillMessage } from "react-icons/ai";
 import { GiRamProfile } from "react-icons/gi";
 import { MdQuestionAnswer } from "react-icons/md";
 import { BsStack } from "react-icons/bs";
+import { DiGoogleAnalytics } from "react-icons/di";
+import { SiGoogleanalytics } from "react-icons/si";
 
 const NavMobileview = () => {
   const [mobilesidebar, setMobilesidebar] = useState(false);
 
-
   const history = useHistory();
-
-
 
   return (
     <div className="responsivenav">
@@ -33,79 +32,45 @@ const NavMobileview = () => {
             onClick={() => setMobilesidebar(!mobilesidebar)}
           />
         </p>
-
-     
       </div>
 
       {mobilesidebar ? (
         <div className="mobile-nav">
           <NavLink
-            to="/dashboard"
+            to="/contracts/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             <div className="sidebar-mobile-nav">
               <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <AiFillDashboard size={20} /> Dashboard
+                <AiFillDashboard size={20} /> Contracts
               </li>
             </div>
           </NavLink>
 
           <NavLink
-            to="/create-job-post"
+            to="/usage/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             <div className="sidebar-mobile-nav">
               <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <RiEditFill size={15} /> Create Jobs
+                <DiGoogleAnalytics size={15} /> Usage
               </li>
             </div>
           </NavLink>
 
           <NavLink
-            to="/profile"
+            to="/usagetwo/"
             style={{ textDecoration: "none" }}
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             <div className="sidebar-mobile-nav">
               <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <FaUserNurse size={15} /> Profile
+                <SiGoogleanalytics size={15} /> Usage Two
               </li>
             </div>
           </NavLink>
-
-          <NavLink
-            to="/applied-jobs"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "inactive")}
-          >
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <BsStack size={15} /> Applied Jobs
-              </li>
-            </div>
-          </NavLink>
-
-        
-    
-
-
-
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <div className="sidebar-mobile-nav">
-              <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-                <AiTwotoneHome size={15} /> Home
-              </li>
-            </div>
-          </Link>
-
-
-          <div className="sidebar-mobile-nav">
-            <li onClick={() => setMobilesidebar(!mobilesidebar)}>
-              <RiLogoutCircleRLine size={15} /> Log Out
-            </li>
-          </div>
         </div>
       ) : null}
     </div>

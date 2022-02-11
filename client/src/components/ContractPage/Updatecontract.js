@@ -1,15 +1,19 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./contractsPage.css";
-import { geteditInfo} from "./apiContract";
+import { geteditInfo } from "./apiContract";
 import { ToastContainer, toast } from "react-toastify";
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { SyncOutlined } from "@ant-design/icons";
 
 const Updatecontract = () => {
   const [machinename, setMachinename] = useState("");
   const [onetimefee, setOnetimefee] = useState("");
   const [usagefee, setUsagefee] = useState("");
   const [error, setError] = useState(false);
+
+  //loading
+  const [loading, setLoading] = useState(true);
 
   const { contractID } = useParams();
   const history = useHistory();
@@ -52,7 +56,6 @@ const Updatecontract = () => {
         if (result.error) {
           setError(result.error);
         } else {
-      
           history.push("/contracts/");
           console.log("success");
           //   setMachinename("");
@@ -69,6 +72,7 @@ const Updatecontract = () => {
     geteditInfo(contractID)
       .then((result) => {
         if (result) {
+          setLoading(false);
           setMachinename(result.machinename);
           setOnetimefee(result.onetimefee);
           setUsagefee(result.usagefee);
@@ -82,6 +86,16 @@ const Updatecontract = () => {
   useEffect(() => {
     getcontractinfoinUpdateform();
   }, []);
+
+  if (loading) {
+    return (
+      <div class="text-center my-25">
+        <h1>
+          <SyncOutlined spin />
+        </h1>
+      </div>
+    );
+  }
 
   const showError = () => (
     <div
@@ -98,7 +112,7 @@ const Updatecontract = () => {
         <div className="col-lg-10 col-md-12 col-sm-12">
           <div className="card event-form-design">
             <div className="text-center">
-              <h5 className="text-center">Create Contracts</h5>
+              <h5 className="text-center">Update Contracts</h5>
             </div>
 
             {showError()}
