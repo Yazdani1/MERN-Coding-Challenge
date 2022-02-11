@@ -5,6 +5,7 @@ import DashboardprotectedRoute from "./components/DashboardprotectedRoute";
 import ContractsPage from "./components/ContractPage/ContractsPage";
 import UsagePage from "./components/Usagespage/UsagePage";
 import Usagestwo from "./components/Usagespage/Usagestwo";
+import Updatecontract from "./components/ContractPage/Updatecontract";
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
         </Route>
         <Route exact path="/usagetwo/">
           <DashboardprotectedRoute DashboardProtect={Usagestwo} />
+        </Route>
+        <Route exact path="/update-contract/:contractID">
+          <DashboardprotectedRoute DashboardProtect={Updatecontract} />
         </Route>
 
         {/*  Protected route end for dashboard side */}

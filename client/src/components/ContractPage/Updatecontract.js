@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./contractsPage.css";
-import { createContract } from "./apiContract";
+import { geteditInfo } from "./apiContract";
 import { ToastContainer, toast } from "react-toastify";
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 const Updatecontract = () => {
   const [machinename, setMachinename] = useState("");
   const [onetimefee, setOnetimefee] = useState("");
   const [usagefee, setUsagefee] = useState("");
   const [error, setError] = useState(false);
+  const { contractID } = useParams();
 
   const machinenameChange = (e) => {
     setError("");
@@ -24,6 +26,24 @@ const Updatecontract = () => {
     setError("");
     setUsagefee(e.target.value);
   };
+
+  const getcontractinfoinUpdateform = () => {
+    geteditInfo(contractID)
+      .then((result) => {
+        if (result) {
+          setMachinename(result.machinename);
+          setOnetimefee(result.onetimefee);
+          setUsagefee(result.usagefee);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getcontractinfoinUpdateform();
+  }, []);
 
   const showError = () => (
     <div
@@ -92,7 +112,7 @@ const Updatecontract = () => {
                   type="submit"
                   name="btnSubmit"
                   className="create-event-button"
-                  onClick={createmachineDetails}
+                  //   onClick={createmachineDetails}
                 >
                   Create Contracts
                 </button>

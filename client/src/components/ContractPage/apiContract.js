@@ -52,10 +52,6 @@ export const deleteContracts = (id) => {
 export const geteditInfo = (id) => {
   return fetch("/api/edit-info/" + id, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
   })
     .then((res) => {
       return res.json();

@@ -1,6 +1,13 @@
 import React from "react";
+import { Link, useHistory, useParams } from "react-router-dom";
 
-const Showcontract = ({ machinename, onetimefee, usagefee,deletecontractList,contractId }) => {
+const Showcontract = ({
+  machinename,
+  onetimefee,
+  usagefee,
+  deletecontractList,
+  contractId,
+}) => {
   return (
     <div className="container-fluid">
       <div className="row">
@@ -32,16 +39,19 @@ const Showcontract = ({ machinename, onetimefee, usagefee,deletecontractList,con
                       Delete
                     </button>
                   </div>
-                  <div className="button-design">
-                    <button
-                      className="btn btn-success"
-                      // onClick={() => {
-                      //   deleteMyjobposts(item._id);
-                      // }}
-                    >
-                      Edit
-                    </button>
-                  </div>
+
+                  <Link to={"/update-contract/" + contractId}>
+                    <div className="button-design">
+                      <button
+                        className="btn btn-success"
+                        // onClick={() => {
+                        //   deleteMyjobposts(item._id);
+                        // }}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
