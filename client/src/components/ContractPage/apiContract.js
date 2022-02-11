@@ -46,3 +46,21 @@ export const deleteContracts = (id) => {
       console.log(err);
     });
 };
+
+//to get edit info in the input field
+
+export const geteditInfo = (id) => {
+  return fetch("/api/edit-info/" + id, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
