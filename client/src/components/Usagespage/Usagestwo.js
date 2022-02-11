@@ -65,6 +65,12 @@ const Usagestwo = () => {
       });
     }
 
+    if (!singlemachine._id) {
+      toast.error("Please select a machine name..", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+
     var contractresult =
       parseFloat(singlemachine.onetimefee) +
       parseFloat(singlemachine.usagefee) * parseInt(usages);
