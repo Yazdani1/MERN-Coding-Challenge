@@ -68,3 +68,17 @@ exports.deleteContracts = (req, res) => {
       console.log(err);
     });
 };
+
+//get edit data in the input field
+
+exports.geteditData = (req, res) => {
+  var editquery = { _id: req.params.id };
+
+  Contract.findOne(editquery)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
