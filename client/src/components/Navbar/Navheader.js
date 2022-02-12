@@ -1,9 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 import "./navheader.css";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Navwebview from "./Navwebview";
 import { Link } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
 
 const Navheader = (props) => {
   return (
