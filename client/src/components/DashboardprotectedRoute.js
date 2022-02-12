@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
-
+import React, { useState, useEffect } from "react";
 import Navwebview from "./Navbar/Navwebview";
 import Navheader from "./Navbar/Navheader";
 import ReactTooltip from "react-tooltip";
@@ -10,7 +8,7 @@ import "./Navbar/navweb.css";
 import "./Navbar/navmobile.css";
 
 const DashboardprotectedRoute = (props) => {
-  const history = useHistory();
+
   let DashboardProtected = props.DashboardProtect;
 
   const [sidebar, setSidebar] = useState(true);
@@ -28,16 +26,13 @@ const DashboardprotectedRoute = (props) => {
     <div className="container-fluid">
       <Navheader data={openNavbar} />
 
-      {/* <div className="container fluid"> */}
       <div className="row">
         <div className="col-xl-2">
           <Navwebview sidebar={sidebar} />
-          {/* <DashboardNav /> */}
         </div>
         <div className="col-xl-10">
           <DashboardProtected />
         </div>
-        {/* </div> */}
       </div>
     </div>
   );

@@ -5,10 +5,10 @@ const machinecontractschema = new mongoose.Schema({
     type: String,
   },
   onetimefee: {
-    type: Number, //to add float but we can also use number and it will work for integer and float type
+    type: Number,
   },
   usagefee: {
-    type: Number, //to add float but we can also use number and it will work for integer and float type
+    type: Number,
   },
   date: {
     type: Date,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Showcontract = ({
   machinename,
