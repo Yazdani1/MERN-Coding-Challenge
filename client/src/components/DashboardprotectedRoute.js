@@ -24,7 +24,7 @@ const DashboardprotectedRoute = (props) => {
 
   return (
     <div className="container-fluid">
-      <Navheader data={openNavbar} />
+      <Navheader data={openNavbar} sidebar={sidebar}/>
 
       <div className="row">
         <div className="col-xl-2">

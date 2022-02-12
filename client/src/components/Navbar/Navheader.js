@@ -2,13 +2,18 @@ import React from "react";
 import "./navheader.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { RiCloseFill } from "react-icons/ri";
 
 const Navheader = (props) => {
   return (
     <>
       <div className="nav-dashboard-headear">
-        <li>
-          <GiHamburgerMenu size={25} onClick={props.data} />
+        <li onClick={props.data}>
+          {props.sidebar ? (
+            <GiHamburgerMenu size={25} />
+          ) : (
+            <RiCloseFill size={35} />
+          )}
         </li>
         <ul>
           <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
